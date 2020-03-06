@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="Tesla/icon2.png">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Никола Тесла</title>
+  <script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+  <script src="https://yastatic.net/share2/share.js"></script>
+  <script type="text/javascript">
+    //Массив вопросов и ответа
+    var data_array = [
+      ["В каком году родился Никола Тесла?", "В 1894 году", "В 1837 году", "В 1856 году", "В 1892 году", 3],
+      ["Кто изобрел радио?", "Гульельмо Маркони", "Никола Тесла", "Александр Попов", "Томас Эдисон", 2],
+      ["В какой университет поступил Никола Тесла в 1875 году?", "Венский технический университет", "Грацский университет имени Карла и Франца", "Гарвардский университет", "Карлов университет", 2],
+      ["В каком году Никола Тесла переехал в Нью-Йорк?", "В 1813 году", "В 1865 году", "В 1872 году", "В 1884 году", 4],
+      ["К каком известному американскому предпринимателю устроился на работу Никола Тесла сразу после прибытия в Нью-Йорк?", "Томас Эдисон", "Генри Форд", "Альфред Крупп", "Джордж Вестингауз", 1],
+      ["В каком году была основана «Tesla Electric Company»?", "В 1912 году", "В 1887 году", "В 1845 году", "В 1894 году", 2],
+      ["Какую из всемирных выставок Экспо посетил Никола Тесла?", "Всемирная выставка 1971 года в Праге", "Всемирная выставка 1862 года в Лондоне", "Всемирная выставка 1958 года в Брюсселе", "Всемирная выставка 1889 года в Париже", 4],
+      ["В какой город переехал Никола Тесла 18 мая 1899 года?", "Колорадо-Спрингс", "Питтсбург", "Нью-Йорк", "Филадельфия", 1],
+      ["В каком году умер Никола Тесла?", "В 1963 году", "В 1989 году", "В 1943 году", "В 1973 году", 3],
+      ["В какой области науки работал Никола Тесла?", "Ядерная физика", "Электротехника", "Лингвистика", "Биология", 2]
+    ];
+
+    var plus = 0;
+    var cur_answer = 0;
+    var count_answer = data_array.length;
+
+    function check(num) {
+
+      if (num == 0) {
+
+        document.getElementById('option1').style.display = 'block';
+        document.getElementById('option2').style.display = 'block';
+        document.getElementById('option3').style.display = 'block';
+        document.getElementById('option4').style.display = 'block';
+        document.getElementById('question').style.display = 'block';
+
+        document.getElementById('option1').innerHTML = data_array[cur_answer][1];
+        document.getElementById('option2').innerHTML = data_array[cur_answer][2];
+        document.getElementById('option3').innerHTML = data_array[cur_answer][3];
+        document.getElementById('option4').innerHTML = data_array[cur_answer][4];
+        document.getElementById('question').innerHTML = data_array[cur_answer][0];
+
+        document.getElementById('welcom').style.display = 'none';
+        document.getElementById('start').style.display = 'none';
+        document.getElementById('end').style.display = 'inline';
+
+      } else {
+
+        if (num == data_array[cur_answer][5]) {
+          plus++;
+          document.getElementById('result').innerHTML = 'Верно!';
+        } else {
+          document.getElementById('result').innerHTML = "Неверно! Правильный ответ: " + data_array[cur_answer][data_array[cur_answer][5]];
+        }
+
+        cur_answer++;
+        if (cur_answer < count_answer) {
+
+          document.getElementById('option1').innerHTML = data_array[cur_answer][1];
+          document.getElementById('option2').innerHTML = data_array[cur_answer][2];
+          document.getElementById('option3').innerHTML = data_array[cur_answer][3];
+          document.getElementById('option4').innerHTML = data_array[cur_answer][4];
+          document.getElementById('question').innerHTML = data_array[cur_answer][0];
+
+        } else {
+
+          document.getElementById('option1').style.display = 'none';
+          document.getElementById('option2').style.display = 'none';
+          document.getElementById('option3').style.display = 'none';
+          document.getElementById('option4').style.display = 'none';
+          document.getElementById('question').style.display = 'none';
+          document.getElementById('end').style.display = 'inline';
+
+          var percent = Math.round(plus / count_answer * 100);
+          var res = 'Плохо!';
+          if (percent >= 70) res = 'Хорошо!';
+          if (percent >= 90) res = 'Отлично!';
+
+          document.getElementById('result').innerHTML = plus + ' из ' + count_answer + ' (' + percent + '%)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + res;
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+  <div class="svg">
+    <svg viewBox="0 0 700 100">
+      <symbol id="s-text">
+        <text text-anchor="middle" x="22%" y="80%" class="text--line">
+          Никола
+        </text>
+        <text text-anchor="middle" x="70%" y="80%" class="text--line2">
+          Тесла
+        </text>
+      </symbol>
+
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+
+  </div>
+  <div class="header">
+    <div class="menu">
+      <a href="index.html">Главная</a>
+      <a href="life.html">Жизнь и работа</a>
+      <a href="inventions.html">Изобретения и теории</a>
+      <a href="tesla.html">Трансформатор Теслы</a>
+      <a href="patients.html">Патенты</a>
+      <a class="light" href="project.html">Пройдите тест</a>
+    </div>
+  </div>
+  <div class="mmenu">
+    <a href="index.html" onclick="return false">☰&nbsp;&nbsp;Меню</a>
+    <div class="sub-menu">
+      <a href="index.html">Главная</a>
+      <a href="life.html">Жизнь и работа</a>
+      <a href="inventions.html">Изобретения и теории</a>
+      <a href="tesla.html">Трансформатор Теслы</a>
+      <a href="patients.html">Патенты</a>
+      <a class="light" href="project.html">Пройдите тест</a>
+    </div>
+  </div>
+
+  <div class="tabs">
+
+    <h2>Что вы узнали о Николе Тесла?</h2>
+
+    <div class="test">
+
+      <div class="question">
+        <p id="result"></p>
+        <p id="welcom"><b class="letsgo">Давайте начнём!</b></p>
+        <p id="question"></p>
+      </div>
+
+      <div class="answer">
+        <div>
+          <button onclick="check(1)" id="option1"></button>
+          <button onclick="check(2)" id="option2"></button>
+        </div>
+        <div>
+          <button onclick="check(3)" id="option3"></button>
+          <button onclick="check(4)" id="option4"></button>
+        </div>
+      </div>
+
+      <div>
+        <button id="start" onclick="check(0)">Начать</button>
+        <script type="text/javascript">
+          var curent_url = document.URL;
+          document.write("<a id='end' style='display: none;' href='" + curent_url + "'>Начать сначала</a>");
+        </script>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="like">
+    <div>
+      <h2>Понравился сайт? Поделись им с друзьями.</h2>
+    </div>
+    <div class="ya-share2" data-services="vkontakte,telegram,twitter,whatsapp,facebook" data-counter="ig"></div>
+  </div>
+
+</body>
+
+</html>

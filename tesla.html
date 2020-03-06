@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="Tesla/icon2.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/C67DF450-EB66-FA46-8B59-FB90D0B6E9D5/main.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Никола Тесла</title>
+</head>
+
+<body>
+
+  <div class="svg">
+    <svg viewBox="0 0 700 100">
+      <symbol id="s-text">
+        <text text-anchor="middle" x="22%" y="80%" class="text--line">
+          Никола
+        </text>
+        <text text-anchor="middle" x="70%" y="80%" class="text--line2">
+          Тесла
+        </text>
+      </symbol>
+
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+      <use class="text" xlink:href="#s-text"></use>
+
+  </div>
+  <div class="header">
+    <div class="menu">
+      <a href="index.html">Главная</a>
+      <a href="life.html">Жизнь и работа</a>
+      <a href="inventions.html">Изобретения и теории</a>
+      <a class="light" href="tesla.html">Трансформатор Теслы</a>
+      <a href="patients.html">Патенты</a>
+      <a href="project.html">Пройдите тест</a>
+    </div>
+  </div>
+  <div class="mmenu">
+    <a href="index.html" onclick="return false">☰&nbsp;&nbsp;Меню</a>
+    <div class="sub-menu">
+      <a href="index.html">Главная</a>
+      <a href="life.html">Жизнь и работа</a>
+      <a href="inventions.html">Изобретения и теории</a>
+      <a class="light" href="tesla.html">Трансформатор Теслы</a>
+      <a href="patients.html">Патенты</a>
+      <a href="project.html">Пройдите тест</a>
+    </div>
+  </div>
+
+  <div class="tabs">
+
+    <h2>Трансформатор Теслы</h2>
+
+    <canvas id="canvas">
+    </canvas>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="light.js"></script>
+    <p>
+      Изобретенная в 1891 году Николой Тесла, катушка Тесла была создана для проведения экспериментов по изучению высоковольтных разрядов. Это устройство состоит из источника питания, конденсатора, двух катушек, между которыми будет циркулировать
+      заряд, и двух электродов, между которыми будет проскакивать разряд. Катушку Тесла, нашедшую применение в великом множестве устройств (от ускорителя частиц и телевидения до детских игрушек) можно сделать дома из радиодеталей.
+    </p>
+    <h2>Инструкция по сборке</h2>
+    <h3>Шаг 1 - Размер имеет значение</h3>
+    <p>
+      Вы можете сделать настолько большую катушку Тесла, насколько позволяет ваш бюджет; но учтите, создаваемые катушкой искровые разряды разогревают воздух, который сильно расширяется (в результате создавая гром). Электромагнитное поле, создаваемое
+      катушкой, может вывести из строя электроприборы, так что лучше расположить ее в отдаленном месте, вроде гаража или мастерской. Чтобы выяснить, насколько длинную дугу вы сможете получить, или какой мощности блок питания потребуется,
+      воспользуйтесь калькулятором ниже.
+    </p>
+    <div class="sparklength">
+      <form name="sparklength" method="get">
+        <div class="spark">
+          <div>
+            <div>
+              <b>Длина молнии, см</b>
+            </div>
+            <div>
+              <input type="text" name="length" value="300" onchange="p()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Требуемая мощность, Вт</b>
+            </div>
+            <div>
+              <input type="text" name="power" value="4822" onchange="l()">
+            </div>
+          </div>
+        </div>
+      </form>
+      <img class="smalcoil" src="photo/smalcoil.jpg">
+      <img class="bigcoil" src="photo/bigcoil.jpg">
+    </div>
+    <h3>Шаг 2 - Терминология</h3>
+    <p>
+      Создание катушки Тесла потребует от вас понимания определенных научных терминов и знания единиц измерения. Вам будет необходимо понимать их значение и смысл, чтобы сделать все правильно. Здесь представлена некоторая информация, которая вам
+      пригодится:
+    </p>
+    <p>
+      •&nbsp;Электрическая емкость – это способность накапливать и удерживать электрический заряд определенного напряжения. Устройство, созданное для накапливания электрического заряда, называется конденсатор.
+      Единица измерения электрического
+      заряда –
+      фарад (обозначается "Ф"). Фарад можно выразить как 1ампер секунда (Кулон), умноженная на вольт. Зачастую емкость измеряется в долях фарада, таких как микрофарад (мФ) – миллионная доля фарада, пикофарад (пкФ) – триллионная доля фарада.
+    </p>
+    <p>
+      •&nbsp;&nbsp;Самоиндукция – это явление возникновения ЭДС в проводнике при изменении проходящего через него тока. Высоковольтные провода, по которым течет низкоамперный ток, обладают высокой самоиндукцией.
+      Единица измерения самоиндукции – генри
+      (сокращенно
+      "Гн"). Один генри соответствует цепи, в которой изменение тока со скоростью один ампер в секунду создает ЭДС 1Вольт. Индуктивность часто измеряют в долях генри: миллигенри ("мГн"), тысячная доля генри или микрогенри ("мкГн"), миллионная
+      часть
+      генри.
+    </p>
+    <p>
+      •&nbsp;&nbsp;Резонансная частота – это частота, на которой потери на передачу энергии минимальны. Для катушки Тесла это частота минимальных потерь при передачи энергии между первичной и вторичной обмотками.
+      Частота измеряется в герцах (сокращенно
+      "Гц"),
+      определяется как один цикл в секунду. Зачастую, резонансная частота измеряется в килогерцах ("кГц"), килогерц равняется 1000 Гц.
+    </p>
+    <h3>Шаг 3 - Поиск деталей</h3>
+    <a rel="nofollow" target="_blank" href="photo/skhema.jpg">
+      <div class="sxema">
+        <div class="grid">
+          <figure class="effect">
+            <img src="photo/skhema.jpg">
+            <figcaption>
+              <p>Схема катушки Тесла</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </a>
+    <p>
+      Вам понадобится: трансформатор, первичный конденсатор высокой емкости, разрядник, первичная катушка низкой индуктивности, вторичная катушка с высокой индуктивностью, вторичный конденсатор с небольшой емкостью и устройство для гашения
+      высокочастотных импульсов, которые возникают при высоких напряжениях во время работы катушки Тесла. Более подробную информацию о необходимых деталях вы найдете в разделе статьи "Изготовление катушки Тесла".
+      Источник питания должен через дроссель питать первичный или накопительный колебательный контур, который состоит из первичного конденсатора, первичной катушки и разрядника. Первичная катушка должна располагаться рядом с вторичной катушкой,
+      которая является элементом вторичного колебательного контура, но контуры не должны быть соединены проводами. Как только вторичный конденсатор накопит достаточный заряд, он будет испускать электрические разряды в воздух.
+    </p>
+
+    <h4>Силовой трансформатор:</h4>
+    <p>
+      Ваш питающий трансформатор определяет, насколько большую катушку вы сможете сделать. Большинство подобных катушек работает от трансформаторов, которые могут выдавать при напряжении 5,000-15,000 вольт ток 30-100 миллиампер. Вы можете
+      поискать
+      трансформатор на местном радиорынке, купить через интернет или снять с неоновой вывески.
+    </p>
+    <h4>Разрядник:</h4>
+    <p>
+      Если вы хотите сделать одиночный разрядник, вам нужно использовать провод минимум 6 миллиметров толщиной, чтобы электроды могли выдерживать тепло, выделяемое во время разряда. Вы также можете сделать многоэлектродный разрядник, роторный
+      разрядник или охлаждать электроды, обдувая воздухом.
+    </p>
+    <h4>Первичный конденсатор:</h4>
+    <p>
+      Его можно сделать из множества маленьких конденсаторов, соединенных в цепь, которые будут накапливать равные доли заряда в первичном контуре. Для этого все конденсаторы должны иметь одинаковую емкость. Такой конденсатор называется
+      составным.
+      Конденсаторы малой емкости и нагрузочные резисторы можно приобрести в магазине радиодеталей или снять керамические конденсаторы со старого телевизора. Вы также можете сделать конденсаторы из алюминиевой фольги и полиэтиленовой пленки.
+      Чтобы добиться максимальной мощности, первичный конденсатор должен полностью заряжаться каждые пол цикла подачи энергии. Для 60 Гц источника питания, заряд должен происходить 120 раз в секунду.
+    </p>
+    <div class="mmccalc">
+      <form name="mmccalc" method="get">
+        <div class="mmc">
+          <div>
+            <div>
+              <b>Ёмкость (C), мкФ</b>
+            </div>
+            <div>
+              <input type="text" name="iCap" onchange="calc()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Напряжение (U), В</b>
+            </div>
+            <div>
+              <input type="text" name="iVoltage" onchange="calc()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Последовательно</b>
+            </div>
+            <div>
+              <input type="text" name="perString" onChange="calc()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Параллельно</b>
+            </div>
+            <div>
+              <input type="text" name="numOfStrings" onChange="calc()">
+            </div>
+          </div>
+          <div style="margin-top: 30px">
+            <div>
+              <b>Суммарная ёмкость (C<sub>сум</sub>), мкФ</b>
+            </div>
+            <div>
+              <input type="text" name="mmcCapacitance" disabled>
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Суммарное напряжение (U<sub>сум</sub>), В</b>
+            </div>
+            <div>
+              <input type="text" name="mmcVoltage" disabled>
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Колличество конденсаторов</b>
+            </div>
+            <div>
+              <input type="text" name="totalNumOfCaps" disabled>
+            </div>
+          </div>
+        </div>
+      </form>
+      <img class="cap" src="photo/cap.gif">
+    </div>
+
+
+    <h4>Первичная катушка:</h4>
+    <p>
+      Сама катушка будет сделана из проволоки, но вам потребуется форма, вокруг которой наматывать проволоку. Следует использовать лакированную медную проволоку, которую вы сможете купить в магазине радиодеталей или снять с ненужного
+      электроприбора.
+      Форма, вокруг которой вы будете обматывать проволоку, должна быль либо цилиндрической, например картонная или пластиковая трубка, либо коническая, например, старый абажур.
+      Длина проволоки будет определять индуктивность первичной катушки. Первичная катушка должна обладать низкой индуктивностью, так что она будет состоять из небольшого количества витков. Проволока для первичной катушки не обязательно должна
+      быть
+      сплошной, вы можете скреплять секции, чтобы регулировать индуктивность походу сборки.
+    </p>
+    <div class="reel">
+      <form name="reel" method="get">
+        <div class="rl">
+          <div>
+            <div>
+              <b>Внутренний диаметр (D), мм</b>
+            </div>
+            <div>
+              <input type="text" name="diameter" onchange="changesreel()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Колличество витков (N)</b>
+            </div>
+            <div>
+              <input type="text" name="turns" onchange="changesreel()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Диаметр провода (W), мм</b>
+            </div>
+            <div>
+              <input type="text" name="wirediameter" onchange="changesreel()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Расстояние между проводами (S), мм</b>
+            </div>
+            <div>
+              <input type="text" name="turnspacing" onchange="changesreel()">
+            </div>
+          </div>
+          <div style="margin-top: 30px">
+            <div>
+              <b>Внешний диаметр (D<sub>0</sub>), мм</b>
+            </div>
+            <div>
+              <input type="text" name="height" disabled>
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Длина провода, м</b>
+            </div>
+            <div>
+              <input type="text" name="wirelength" disabled>
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Индуктивность (L), мкГн</b>
+            </div>
+            <div>
+              <input type="text" name="inductance" disabled>
+            </div>
+          </div>
+        </div>
+      </form>
+      <img class="spiral" src="photo/spiral.gif">
+    </div>
+
+    <h4>Вторичная катушка:</h4>
+    <p>
+      Как и для первичной катушки, вам нужна цилиндрическая форма, на которую вы будете наматывать проволоку. Вторичная катушка должна иметь такую же резонансную частоту, как и первичная, чтобы избежать потерь. Вторичная катушка должна быть
+      длиннее/выше, чем первичная, так как должна обладать большей индуктивностью и препятствовать разряду вторичного контура, который может привести к тому, что первичная катушка сгорит.
+      Если у вас не хватает материалов сделать достаточно большую вторичную катушку, вы можете сделать разрядный электрод, чтобы защитить первичный контур, но это приведет к тому, что большая часть разрядов будет приходиться на этот электрод и
+      их не
+      будет видно.
+    </p>
+    <p>
+      Используйте эти таблицы как примерное руководство по выбору диаметра вашей вторичной катушки.
+    </p>
+    <div class="table">
+      <table border="2px" cellpadding="2" cellspacing="1" width="560" height="260">
+        <caption>
+          <b>Соотношение мощности и диаметра вторичной катушки</b>
+        </caption>
+        <tr>
+          <td align="center">
+            Мощность, Вт
+          </td>
+          <td align="center">
+            Диаметр вторичной катушки, см
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            меньше 500
+          </td>
+          <td width="60%" align="center">
+            <center>
+              от 8 до 10
+            </center>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            от 500 до 1500
+          </td>
+          <td>
+            <center>
+              от 10 до 15
+            </center>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            от 1500 до 3000
+          </td>
+          <td>
+            <center>
+              от 15 до 25
+            </center>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            от 3000 и более
+          </td>
+          <td>
+            <center>
+              25 и больше
+            </center>
+          </td>
+        </tr>
+      </table>
+
+      <table border="2px" width="560" height="260" cellspacing="1" cellpadding="5">
+        <caption>
+          <b>Соотношение диаметра и длины вторичной катушки</b>
+        </caption>
+        <tr>
+          <td width="33%">
+            <center>
+              &nbsp;Диаметр, см
+            </center>
+          </td>
+          <td width="33%">
+            <center>
+              Отношение длины к диаметру
+            </center>
+          </td>
+          <td width="34%">
+            <center>
+              Длина катушки, см
+            </center>
+          </td>
+        </tr>
+        <tr>
+          <td width="33%" align="center">
+            &nbsp;8
+          </td>
+          <td width="33%">
+            <center>
+              &nbsp;6 к 1
+            </center>
+          </td>
+          <td width="34%">
+            <center>
+              &nbsp;48
+            </center>
+          </td>
+        </tr>
+        <tr>
+          <td width="33%" align="center">
+            &nbsp;10
+          </td>
+          <td width="33%">
+            <center>
+              &nbsp;5 к 1
+            </center>
+          </td>
+          <td width="34%">
+            <center>
+              &nbsp;<font>50
+            </center>
+          </td>
+        </tr>
+        <tr>
+          <td width="33%" align="center">
+            &nbsp;15
+          </td>
+          <td width="33%">
+            <center>
+              &nbsp;4 to 1
+            </center>
+          </td>
+          <td width="34%">
+            <center>
+              &nbsp;60
+            </center>
+          </td>
+        </tr>
+        <tr>
+          <td width="33%" align="center">
+            &nbsp;20 и больше
+          </td>
+          <td width="33%">
+            <center>
+              &nbsp;3 - 5 к 1
+            </center>
+          </td>
+          <td width="34%">
+            <center>
+              60 и больше
+            </center>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="coilcalc">
+      <form name="coilcalc" method="get">
+        <div class="coil">
+          <div>
+            <div>
+              <b>Диаметр катушки (D), мм</b>
+            </div>
+            <div>
+              <input type="text" name="diameter" onchange="changescoil()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Колличество витков (N)</b>
+            </div>
+            <div>
+              <input type="text" name="turns" onchange="changescoil()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Диаметр провода (W), мм</b>
+            </div>
+            <div>
+              <input type="text" name="wirediameter" onchange="changescoil()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Расстояние между проводами (S), мм</b>
+            </div>
+            <div>
+              <input type="text" name="turnspacing" onchange="changescoil()">
+            </div>
+          </div>
+          <div style="margin-top: 30px">
+            <div>
+              <b>Высота катушки (H), мм</b>
+            </div>
+            <div>
+              <input type="text" name="height" disabled>
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Длина провода, м</b>
+            </div>
+            <div>
+              <input type="text" name="wirelength" disabled>
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Индуктивность (L), мкГн</b>
+            </div>
+            <div>
+              <input type="text" name="inductance" disabled>
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Емкость (C), пФ</b>
+            </div>
+            <div>
+              <input type="text" name="selfcap" disabled>
+            </div>
+          </div>
+        </div>
+      </form>
+      <img class="photocoil" src="photo/coil.gif">
+    </div>
+
+    <h4>Терминал:</h4>
+    <p>
+      Вторичный конденсатор, или терминал, должен быть скругленной формы, две самые популярные – тор (кольцо в форме бублика) и сфера.
+    </p>
+    <div class="toroidcalc">
+      <form name="toroidcalc" method="get">
+        <div class="toroid">
+          <div>
+            <div>
+              <b>D1, мм</b>
+            </div>
+            <div>
+              <input type="text" name="d1" onchange="changestor()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>D2, мм</b>
+            </div>
+            <div>
+              <input type="text" name="d2" onchange="changestor()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Емкость (C), пФ</b>
+            </div>
+            <div>
+              <input type="text" name="c" disabled>
+            </div>
+          </div>
+        </div>
+      </form>
+      <img class="phototor" src="photo/tor.gif">
+    </div>
+
+    <h4>Резонансная частота вторичной цепи</h4>
+    <p>
+      Соедините вторичный конденсатор и вторичную катушку. Это будет вторичным колебательным контуром.
+      Ваш вторичный контур должен быть заземлен отдельно от вашей проводки по дому, которая питает источник катушки Тесла. Это необходимо, чтобы избежать блуждания высоковольтных токов по проводке дома и нанесению вреда подключенным
+      электроприборам.
+      Сделать отдельное заземление можно, вогнав металлический штырь в землю.
+    </p>
+    <div class="resfreq">
+      <form name="resfreq" method="get">
+        <div class="freq">
+          <div>
+            <div>
+              <b>Индуктивность катушки (L), мкГн</b>
+            </div>
+            <div>
+              <input type="text" name="L" onchange="calculatef()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Емкость конденсаторов (C), пФ</b>
+            </div>
+            <div>
+              <input type="text" name="C" onchange="calculatef()">
+            </div>
+          </div>
+          <div>
+            <div>
+              <b>Резонансная частота контура (F), кГц</b>
+            </div>
+            <div>
+              <input type="text" name="F" disabled>
+            </div>
+          </div>
+        </div>
+      </form>
+      <img class="lc" src="photo/lc.gif">
+    </div>
+
+  </div>
+</body>
+
+</html>
